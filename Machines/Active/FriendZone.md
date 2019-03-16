@@ -152,3 +152,41 @@ getting file \creds.txt of size 57 as creds.txt (0.1 KiloBytes/sec) (average 0.1
 smb: \> exit
 root@kali:/mnt/hgfs/HTB/Machines/123#
 ```
+```console
+root@kali:/mnt/hgfs/HTB/Machines/123# dig @10.10.10.123 friendzone.red axfr
+
+; <<>> DiG 9.11.5-P1-1-Debian <<>> @10.10.10.123 friendzone.red axfr
+; (1 server found)
+;; global options: +cmd
+friendzone.red.		604800	IN	SOA	localhost. root.localhost. 2 604800 86400 2419200 604800
+friendzone.red.		604800	IN	AAAA	::1
+friendzone.red.		604800	IN	NS	localhost.
+friendzone.red.		604800	IN	A	127.0.0.1
+administrator1.friendzone.red. 604800 IN A	127.0.0.1
+hr.friendzone.red.	604800	IN	A	127.0.0.1
+uploads.friendzone.red.	604800	IN	A	127.0.0.1
+friendzone.red.		604800	IN	SOA	localhost. root.localhost. 2 604800 86400 2419200 604800
+;; Query time: 269 msec
+;; SERVER: 10.10.10.123#53(10.10.10.123)
+;; WHEN: Sat Mar 16 05:45:05 EDT 2019
+;; XFR size: 8 records (messages 1, bytes 289)
+
+root@kali:/mnt/hgfs/HTB/Machines/123# 
+```
+
+```console
+root@kali:~/HTB/Machines/123# cat /etc/hosts
+127.0.0.1	localhost
+127.0.1.1	kali
+
+# The following lines are desirable for IPv6 capable hosts
+::1     localhost ip6-localhost ip6-loopback
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+
+10.10.10.123 friendzone.red
+10.10.10.123 uploads.friendzone.red
+10.10.10.123 administrator1.friendzone.red
+10.10.10.123 hr.friendzone.red
+root@kali:~/HTB/Machines/123# 
+```
