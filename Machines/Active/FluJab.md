@@ -123,4 +123,31 @@ DNS:rubberlove.htb
 DNS:freeflujab.htb
 DNS:flujab.htb
 ```
+## /etc/host
+```console
+root@kali:/mnt/hgfs/HackTheBox/Machines/124# cat /etc/hosts
+127.0.0.1	localhost
+127.0.1.1	kali
 
+# The following lines are desirable for IPv6 capable hosts
+::1     localhost ip6-localhost ip6-loopback
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+
+10.10.10.124 clownware.htb
+10.10.10.124 sni147831.clownware.htb
+10.10.10.124 *.clownware.htb
+10.10.10.124 proxy.clownware.htb
+10.10.10.124 console.flujab.htb
+10.10.10.124 sys.flujab.htb
+10.10.10.124 smtp.flujab.htb
+10.10.10.124 vaccine4flu.htb
+10.10.10.124 bestmedsupply.htb
+10.10.10.124 custoomercare.megabank.htb
+10.10.10.124 flowerzrus.htb
+10.10.10.124 chocolateriver.htb
+10.10.10.124 meetspinz.htb
+10.10.10.124 rubberlove.htb
+10.10.10.124 freeflujab.htb
+10.10.10.124 flujab.htb
+```
