@@ -230,3 +230,58 @@ DECIMAL       HEXADECIMAL     DESCRIPTION
 
 root@kali:/mnt/hgfs/HTB/Machines/123#
 ```
+```console
+root@kali:~/Desktop/HackTheBox/Machines/123# nmap --script smb-enum-shares.nse -p445 10.10.10.123
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-03-28 01:17 EDT
+Nmap scan report for administrator1.friendzone.red (10.10.10.123)
+Host is up (0.27s latency).
+
+PORT    STATE SERVICE
+445/tcp open  microsoft-ds
+
+Host script results:
+| smb-enum-shares: 
+|   account_used: guest
+|   \\10.10.10.123\Development: 
+|     Type: STYPE_DISKTREE
+|     Comment: FriendZone Samba Server Files
+|     Users: 1
+|     Max Users: <unlimited>
+|     Path: C:\etc\Development
+|     Anonymous access: READ/WRITE
+|     Current user access: READ/WRITE
+|   \\10.10.10.123\Files: 
+|     Type: STYPE_DISKTREE
+|     Comment: FriendZone Samba Server Files /etc/Files
+|     Users: 0
+|     Max Users: <unlimited>
+|     Path: C:\etc\hole
+|     Anonymous access: <none>
+|     Current user access: <none>
+|   \\10.10.10.123\IPC$: 
+|     Type: STYPE_IPC_HIDDEN
+|     Comment: IPC Service (FriendZone server (Samba, Ubuntu))
+|     Users: 2
+|     Max Users: <unlimited>
+|     Path: C:\tmp
+|     Anonymous access: READ/WRITE
+|     Current user access: READ/WRITE
+|   \\10.10.10.123\general: 
+|     Type: STYPE_DISKTREE
+|     Comment: FriendZone Samba Server Files
+|     Users: 1
+|     Max Users: <unlimited>
+|     Path: C:\etc\general
+|     Anonymous access: READ/WRITE
+|     Current user access: READ/WRITE
+|   \\10.10.10.123\print$: 
+|     Type: STYPE_DISKTREE
+|     Comment: Printer Drivers
+|     Users: 0
+|     Max Users: <unlimited>
+|     Path: C:\var\lib\samba\printers
+|     Anonymous access: <none>
+|_    Current user access: <none>
+
+Nmap done: 1 IP address (1 host up) scanned in 68.31 seconds
+```
