@@ -285,3 +285,17 @@ Host script results:
 
 Nmap done: 1 IP address (1 host up) scanned in 68.31 seconds
 ```
+
+``console
+root@kali:/mnt/hgfs/HackTheBox/Machines/123# smbmap -H 10.10.10.123 
+[+] Finding open SMB ports....
+[+] Guest SMB session established on 10.10.10.123...
+[+] IP: 10.10.10.123:445	Name: administrator1.friendzone.red                     
+	Disk                                                  	Permissions
+	----                                                  	-----------
+	print$                                            	NO ACCESS
+	Files                                             	NO ACCESS
+	general                                           	READ ONLY
+	Development                                       	READ, WRITE
+	IPC$                                              	NO ACCESS
+```
