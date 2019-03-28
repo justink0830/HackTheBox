@@ -286,7 +286,7 @@ Host script results:
 Nmap done: 1 IP address (1 host up) scanned in 68.31 seconds
 ```
 
-``console
+```console
 root@kali:/mnt/hgfs/HackTheBox/Machines/123# smbmap -H 10.10.10.123 
 [+] Finding open SMB ports....
 [+] Guest SMB session established on 10.10.10.123...
@@ -298,4 +298,29 @@ root@kali:/mnt/hgfs/HackTheBox/Machines/123# smbmap -H 10.10.10.123
 	general                                           	READ ONLY
 	Development                                       	READ, WRITE
 	IPC$                                              	NO ACCESS
+```
+
+```console
+root@kali:/mnt/hgfs/HackTheBox/Machines/123# nmap --script smb-vuln* -p 139,445 10.10.10.123
+Starting Nmap 7.70 ( https://nmap.org ) at 2019-03-28 02:19 EDT
+Nmap scan report for administrator1.friendzone.red (10.10.10.123)
+Host is up (0.28s latency).
+
+PORT    STATE SERVICE
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+
+Host script results:
+|_smb-vuln-ms10-054: false
+|_smb-vuln-ms10-061: false
+| smb-vuln-regsvc-dos: 
+|   VULNERABLE:
+|   Service regsvc in Microsoft Windows systems vulnerable to denial of service
+|     State: VULNERABLE
+|       The service regsvc in Microsoft Windows 2000 systems is vulnerable to denial of service caused by a null deference
+|       pointer. This script will crash the service if it is vulnerable. This vulnerability was discovered by Ron Bowes
+|       while working on smb-enum-sessions.
+|_          
+
+Nmap done: 1 IP address (1 host up) scanned in 106.35 seconds
 ```
