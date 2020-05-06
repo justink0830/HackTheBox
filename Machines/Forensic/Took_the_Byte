@@ -1,6 +1,6 @@
 The .zip file comes with one file: password.
 
-'''console
+```console
 kali@kali:~/HTB/Challenges/Forensic/Took_the_byte$ cat password
 [...]
 
@@ -9,9 +9,9 @@ kali@kali:~/HTB/Challenges/Forensic/Took_the_byte$ cat password
 kali@kali:~/HTB/Challenges/Forensic/Took_the_byte$ file password
 password: data
 kali@kali:~/HTB/Challenges/Forensic/Took_the_byte$
-'''
+```
 
-'''
+```
 kali@kali:~/HTB/Challenges/Forensic/Took_the_byte$ xxd password
 00000000: afb4 fcfb ebff f7ff f7ff 2863 aab1 ffff  ..........(c....
 00000010: ffff ffff ffff ffff ffff f3ff efff 8f9e  ................
@@ -26,14 +26,14 @@ kali@kali:~/HTB/Challenges/Forensic/Took_the_byte$ xxd password
 000000a0: 6abb 90a3 afb4 faf9 ffff ffff feff feff  j...............
 000000b0: b9ff ffff a1ff ffff ffff                 ..........
 kali@kali:~/HTB/Challenges/Forensic/Took_the_byte$
-'''
+```
 
 We see that the file contains several octets with f, so it looks the previously there were 0x00 bytes and were xored with 0xff, and as a result we got the result as the image above.
 We would need to XOR the file with 0xff. 
 
 Code site: https://github.com/dirtbags/fluffy/blob/master/xor.c
 
-'''c
+```c
 /*
  * xor filter -- 2017 Neale Pickett <zephyr@dirtbags.net>
  *
@@ -83,9 +83,9 @@ main(int argc, char *argv[])
 
 	return 0;
 }
-'''
+```
 
-'''console
+```console
 kali@kali:~/HTB/Challenges/Forensic/Took_the_byte$ cat password | ./xor 0xff > bin
 [...]
 kali@kali:~/HTB/Challenges/Forensic/Took_the_byte$ unzip bin
@@ -96,5 +96,5 @@ bin  MemoryLeaks-TooktheByte.pdf  password  password.txt  Took_the_Byte.zip  xor
 kali@kali:~/HTB/Challenges/Forensic/Took_the_byte$ cat password.txt
 HTB{27AjFDkqi1wJ}
 kali@kali:~/HTB/Challenges/Forensic/Took_the_byte$
-'''
+```
 HTB{27AjFDkqi1wJ}
