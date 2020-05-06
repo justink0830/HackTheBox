@@ -11,7 +11,7 @@ password: data
 kali@kali:~/HTB/Challenges/Forensic/Took_the_byte$
 ```
 
-```
+```console
 kali@kali:~/HTB/Challenges/Forensic/Took_the_byte$ xxd password
 00000000: afb4 fcfb ebff f7ff f7ff 2863 aab1 ffff  ..........(c....
 00000010: ffff ffff ffff ffff ffff f3ff efff 8f9e  ................
