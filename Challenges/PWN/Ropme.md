@@ -89,5 +89,5 @@ flag.txt
 ropme
 spawn.sh
 cat flag.txt
-HTB{r0p_m3_if_y0u_c4n!}
+
 ```
